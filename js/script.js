@@ -35,3 +35,5 @@ $( "#play" ).click(
     $( "img" ).animate({ "top": "200vh"}, 6000, "linear");
   }
 );
+
+$(".image-confetti img").draggable();
