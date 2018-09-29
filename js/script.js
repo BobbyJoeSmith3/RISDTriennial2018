@@ -34,12 +34,20 @@ $( "#critique" ).hover(
 // Animate images from category when clicked.
 $( "#play" ).click(
   function() {
+    populateImages();
     dropConfetti();
   }
 );
 
 function dropConfetti() {
   $( "img" ).animate({ "top": "200vh"}, 6000, "linear");
+}
+
+function populateImages() {
+  // determine which group of images to display
+  // add each image in directory as an element on the screen
+  var filepath = "assets/play/";
+  $(".image-confetti").prepend(`<img alt="images" src="${filepath}_Aleph, Infinitely Veritable Typeface, Nick Adam, 2018 Alum.png">`);
 }
 
 $(".image-confetti img").draggable();
