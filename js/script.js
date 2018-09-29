@@ -1,3 +1,4 @@
+// Fill text categories when hovering
 $( "#play" ).hover(
   function() {
     $( this ).css({"fill": "#f2b113", "stroke-width": "1.36px", "stroke": "black", "cursor": "pointer"});
@@ -30,10 +31,15 @@ $( "#critique" ).hover(
   }
 );
 
+// Animate images from category when clicked.
 $( "#play" ).click(
   function() {
-    $( "img" ).animate({ "top": "200vh"}, 6000, "linear");
+    dropConfetti();
   }
 );
+
+function dropConfetti() {
+  $( "img" ).animate({ "top": "200vh"}, 6000, "linear");
+}
 
 $(".image-confetti img").draggable();
