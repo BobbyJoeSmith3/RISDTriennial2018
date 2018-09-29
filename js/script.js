@@ -34,7 +34,8 @@ $( "#critique" ).hover(
 // Animate images from category when clicked.
 $( "#play" ).click(
   function() {
-    populateImages();
+    // call populateImages() with the ID of the clicked element
+    populateImages($(this).attr('id'));
     dropConfetti();
   }
 );
@@ -43,11 +44,14 @@ function dropConfetti() {
   $( "img" ).animate({ "top": "200vh"}, 6000, "linear");
 }
 
-function populateImages() {
+function populateImages(dir_id) {
   // determine which group of images to display
+  var filepath = `assets/${dir_id}/`;
   // add each image in directory as an element on the screen
-  var filepath = "assets/play/";
-  $(".image-confetti").prepend(`<img alt="images" src="${filepath}_Aleph, Infinitely Veritable Typeface, Nick Adam, 2018 Alum.png">`);
+  var play_dir = ['_Aleph, Infinitely Veritable Typeface, Nick Adam, 2018 Alum.png', '122 Brook to 41 Sheldon, Elena Foraker, 2020.png', 'Ampersands, Olivia Orr, 2020.png', 'Atypical Archetypes, Lake Buckley, 2017 Alum.png', 'Boxing Dada, Maria Rull Bescos, 2019 Alum.png', 'Doodles Turned Digital, Etienne Adams, 2021.png', 'Green, Hirosi Yoshimura, 2019.png', 'The Plot Thins, Zoe Schneider, 2019.png', 'UselessMachine_KanyaratLoetaphirom_2019.png', 'Zoo’s Inner Voices, Zoo Somaini, 2019.png'];
+  for (let i = 0; i < play_dir.length; i++) {
+    $(".image-confetti").prepend(`<img alt="images" src="${filepath}${play_dir[i]}">`);
+  }
 }
 
 $(".image-confetti img").draggable();
