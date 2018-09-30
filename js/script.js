@@ -79,7 +79,9 @@ function populateImages(dir_id, img_dir) {
     // Add CSS to newly created image node
     // To keep from creating a ridiculous number of classes, use first child selector. Since we are prepending the images, the image we just created will always be the first child
     // Randomly generate speed so image drop is staggered
-    let speed = randomIntFromInterval(4000,7000);
+    let dropSpeed = randomIntFromInterval(4000,7000);
+    // Randomly generate spin speed of images
+    let spinSpeed = randomIntFromInterval(2, 6);
     // Calculated as %
     let left = randomIntFromInterval(10, 90);
     // Calculated as pixels
@@ -94,14 +96,12 @@ function populateImages(dir_id, img_dir) {
       "left": `${left}%`,
       "width": `${width}px`,
       "margin":"-60px 0 0 -60px",
-      "-webkit-animation":"spin 2s linear infinite",
-      "-moz-animation":"spin 2s linear infinite",
-      "animation":"spin 2s linear infinite",
+      "animation":`spin ${spinSpeed}s linear infinite`,
       "cursor":"grab"
     }
     // Needs to be +1 because nth-child indexes from 1 instead of 0
     // Add element styles and drop confetti
-    $(`img:nth-child(${i+1})`).css(styles).animate({ "top": website_height }, speed, "swing");
+    $(`img:nth-child(${i+1})`).css(styles).animate({ "top": website_height }, dropSpeed, "swing");
     // Make each image draggable
     $(".image-confetti img").draggable();
   }
