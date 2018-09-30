@@ -41,7 +41,7 @@ $( "#play" ).click(
 );
 
 function dropConfetti() {
-  $( "img" ).animate({ "top": "200vh"}, 6000, "linear");
+  $( "img" ).animate({ "top": "150vh"}, 6000, "linear");
 }
 
 function populateImages(dir_id) {
