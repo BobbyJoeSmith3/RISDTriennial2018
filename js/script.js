@@ -51,13 +51,18 @@ function populateImages(dir_id) {
   var play_dir = ['_Aleph, Infinitely Veritable Typeface, Nick Adam, 2018 Alum.png', '122 Brook to 41 Sheldon, Elena Foraker, 2020.png', 'Ampersands, Olivia Orr, 2020.png', 'Atypical Archetypes, Lake Buckley, 2017 Alum.png', 'Boxing Dada, Maria Rull Bescos, 2019 Alum.png', 'Doodles Turned Digital, Etienne Adams, 2021.png', 'Green, Hirosi Yoshimura, 2019.png', 'The Plot Thins, Zoe Schneider, 2019.png', 'UselessMachine_KanyaratLoetaphirom_2019.png', 'Zoo’s Inner Voices, Zoo Somaini, 2019.png'];
   for (let i = 0; i < play_dir.length; i++) {
     $(".image-confetti").prepend(`<img alt="images" src="${filepath}${play_dir[i]}">`);
+
+
+  }
+  for (let i = 0; i < play_dir.length; i++) {
     // Add CSS to newly created image node
     // To keep from creating a ridiculous number of classes, use first child selector. Since we are prepending the images, the image we just created will always be the first child
     // Calculated as %
     let left = randomIntFromInterval(10, 90);
     // Calculated as pixels
     let width = randomIntFromInterval(100, 200);
-    $(".image-confetti:first-child").css({
+    // As of jQuery 1.8, the .css() setter will automatically take care of prefixing the property name.
+    var styles = {
       "display":  "block",
       "position": "absolute",
       "top": "-150px",
@@ -67,7 +72,8 @@ function populateImages(dir_id) {
       "-webkit-animation":"spin 2s linear infinite",
       "-moz-animation":"spin 2s linear infinite",
       "animation":"spin 2s linear infinite"
-    })
+    }
+    $(`img:nth-child(${i+1})`).css(styles);
   }
 }
 
