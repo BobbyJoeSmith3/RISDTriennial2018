@@ -1,3 +1,12 @@
+const crit_dir = ['Belief, Nicholas Conrad, 2018.png', 'Blackwell, Olivia de Salve Villedieu, 2019.png', 'Bolita, Elaine Lopez, 2019.png', 'Catologue of Freedom, Robert McConnell, 2019.png', 'Double Standards Manual, Elena Foraker, 2020.png', 'Hey, Candidate, Boyang Xia, 2017 Alum.png', 'I Guess I Hate Banter, Tiger Dingsun, 2019.png', 'The Loop of the World, Jieun Kim, 2019.png', 'The Souvenirs from the Future exhibition catalog, Elaine Lopez, 2019.png', 'This Too Shall Pass, Aleks Dawson, 2020.png'];
+
+const play_dir = ['_Aleph, Infinitely Veritable Typeface, Nick Adam, 2018 Alum.png', '122 Brook to 41 Sheldon, Elena Foraker, 2020.png', 'Ampersands, Olivia Orr, 2020.png', 'Atypical Archetypes, Lake Buckley, 2017 Alum.png', 'Boxing Dada, Maria Rull Bescos, 2019 Alum.png', 'Doodles Turned Digital, Etienne Adams, 2021.png', 'Green, Hirosi Yoshimura, 2019.png', 'The Plot Thins, Zoe Schneider, 2019.png', 'UselessMachine_KanyaratLoetaphirom_2019.png', 'Zoo’s Inner Voices, Zoo Somaini, 2019.png'];
+
+const practice_dir = ['2 Designers Timeline _ Accordion Book, Grace Young, 2020.png', 'Art in_under_from System, Goeun Park.pdf.pdf', 'Bandaloop_DelaneyWeber_2016.png', 'Grünes Haus_RohanChaurasia_2019.png', 'History Timeline_, JavierSyquia_2021.png', 'LichtensteinPoster_JueunJeon_2020.png', 'Notebooks1–4_OliviaDeSalveVilledieu_2019.png', 'Oleanna_AnhLe_2019.png', 'Pause, Amy Auman, 2019.png', 'TypeEssays_MadeleineTeh_2020.png'];
+
+const prototype_dir = ['Algorithmic Reading_ Stranger, Lorraine Li, 2020.png', 'Archive of Default Studies, Lauren Traugott-Campbell, 2018 Alum.png', 'Barcode Book, June Yoon, 2019.png', 'Fruit for Thought, Nathan Young, 2019.png', 'Lightbox, Mostyn Griffith, 2018 Alum.png', 'reading_cover-web-edit copy copy.jpg', 'Screen Shot 2018-09-21 at 12.05.56 AM.png', 'StephaniewinartoBarn.png', 'Tool() Conference Brand, Baron Webster & Lukas Eigler-Harding, Alum 2018 .png', 'USB, Lara Torrance, 2018 Alum.png'];
+
+
 // Fill text categories when hovering
 $( "#play" ).hover(
   function() {
@@ -48,7 +57,7 @@ function populateImages(dir_id) {
   // determine which group of images to display
   var filepath = `assets/${dir_id}/`;
   // add each image in directory as an element on the screen
-  var play_dir = ['_Aleph, Infinitely Veritable Typeface, Nick Adam, 2018 Alum.png', '122 Brook to 41 Sheldon, Elena Foraker, 2020.png', 'Ampersands, Olivia Orr, 2020.png', 'Atypical Archetypes, Lake Buckley, 2017 Alum.png', 'Boxing Dada, Maria Rull Bescos, 2019 Alum.png', 'Doodles Turned Digital, Etienne Adams, 2021.png', 'Green, Hirosi Yoshimura, 2019.png', 'The Plot Thins, Zoe Schneider, 2019.png', 'UselessMachine_KanyaratLoetaphirom_2019.png', 'Zoo’s Inner Voices, Zoo Somaini, 2019.png'];
+
   for (let i = 0; i < play_dir.length; i++) {
     $(".image-confetti").prepend(`<img alt="images" src="${filepath}${play_dir[i]}">`);
 
@@ -73,6 +82,7 @@ function populateImages(dir_id) {
       "-moz-animation":"spin 2s linear infinite",
       "animation":"spin 2s linear infinite"
     }
+    // Needs to be +1 because nth-child indexes from 1 instead of 0
     $(`img:nth-child(${i+1})`).css(styles);
   }
 }
