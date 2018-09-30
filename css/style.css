@@ -170,7 +170,7 @@ img:nth-child(5) {
   animation:spin 3s linear infinite;
 } */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 667px) {
   body {
     margin:0px;
   }
