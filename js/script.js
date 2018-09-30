@@ -45,21 +45,18 @@ $( "#crit" ).click(
   function() {
     // call populateImages() with the ID of the clicked element
     populateImages($(this).attr('id'), crit_dir);
-    dropConfetti();
   }
 );
 $( "#play" ).click(
   function() {
     // call populateImages() with the ID of the clicked element
     populateImages($(this).attr('id'), play_dir);
-    dropConfetti();
   }
 );
 $( "#practice" ).click(
   function() {
     // call populateImages() with the ID of the clicked element
     populateImages($(this).attr('id'), practice_dir);
-    dropConfetti();
   }
 );
 $( "#prototype" ).click(
