@@ -71,22 +71,19 @@ $( "#prototype" ).click(
 );
 
 function dropConfetti() {
-  $( "img" ).animate({ "top": "150vh"}, 6000, "swing");
+  let website_height = document.body.clientHeight;
+  $( "img" ).animate({ "top": website_height }, 6000, "swing");
 }
 
 function populateImages(dir_id, img_dir) {
   // determine which group of images to display
   var filepath = `assets/${dir_id}/`;
-  console.log(dir_id);
-  console.log(img_dir);
-  console.log(img_dir.length);
-  // add each image in directory as an element on the screen
 
+  // add each image in directory as an element on the screen
   for (let i = 0; i < img_dir.length; i++) {
     $(".image-confetti").prepend(`<img alt="images" src="${filepath}${img_dir[i]}">`);
-
-
   }
+
   for (let i = 0; i < img_dir.length; i++) {
     // Add CSS to newly created image node
     // To keep from creating a ridiculous number of classes, use first child selector. Since we are prepending the images, the image we just created will always be the first child
@@ -104,15 +101,16 @@ function populateImages(dir_id, img_dir) {
       "margin":"-60px 0 0 -60px",
       "-webkit-animation":"spin 2s linear infinite",
       "-moz-animation":"spin 2s linear infinite",
-      "animation":"spin 2s linear infinite"
+      "animation":"spin 2s linear infinite",
+      "cursor":"grab"
     }
     // Needs to be +1 because nth-child indexes from 1 instead of 0
     $(`img:nth-child(${i+1})`).css(styles);
+    // Make each image draggable
+    $(".image-confetti img").draggable();
   }
 }
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random()*(max-min+1)+min);
 }
-
-$(".image-confetti img").draggable();
