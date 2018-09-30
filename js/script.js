@@ -104,15 +104,16 @@ function populateImages(dir_id, img_dir) {
       "margin":"-60px 0 0 -60px",
       "-webkit-animation":"spin 2s linear infinite",
       "-moz-animation":"spin 2s linear infinite",
-      "animation":"spin 2s linear infinite"
+      "animation":"spin 2s linear infinite",
+      "cursor":"grab"
     }
     // Needs to be +1 because nth-child indexes from 1 instead of 0
     $(`img:nth-child(${i+1})`).css(styles);
+    // Make each image draggable
+    $(".image-confetti img").draggable();
   }
 }
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random()*(max-min+1)+min);
 }
-
-$(".image-confetti img").draggable();
