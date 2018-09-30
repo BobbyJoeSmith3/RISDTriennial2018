@@ -17,6 +17,7 @@ body {
   grid-template-columns: 5vh 1fr 5vh;
   grid-template-rows: 0px minmax(45vh, auto) auto;
   grid-gap: 4rem;
+  padding-bottom: 20vh;
 }
 
 .title {
