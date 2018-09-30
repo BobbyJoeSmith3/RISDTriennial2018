@@ -66,14 +66,8 @@ $( "#prototype" ).click(
   function() {
     // call populateImages() with the ID of the clicked element
     populateImages($(this).attr('id'),prototype_dir);
-    dropConfetti();
   }
 );
-
-function dropConfetti() {
-  let website_height = document.body.clientHeight;
-  $( "img" ).animate({ "top": website_height }, 6000, "swing");
-}
 
 function populateImages(dir_id, img_dir) {
   // determine which group of images to display
@@ -87,10 +81,14 @@ function populateImages(dir_id, img_dir) {
   for (let i = 0; i < img_dir.length; i++) {
     // Add CSS to newly created image node
     // To keep from creating a ridiculous number of classes, use first child selector. Since we are prepending the images, the image we just created will always be the first child
+    // Randomly generate speed so image drop is staggered
+    let speed = randomIntFromInterval(4000,7000);
     // Calculated as %
     let left = randomIntFromInterval(10, 90);
     // Calculated as pixels
     let width = randomIntFromInterval(100, 200);
+    // Calcluate length of website
+    let website_height = document.body.clientHeight;
     // As of jQuery 1.8, the .css() setter will automatically take care of prefixing the property name.
     var styles = {
       "display":  "block",
@@ -105,7 +103,8 @@ function populateImages(dir_id, img_dir) {
       "cursor":"grab"
     }
     // Needs to be +1 because nth-child indexes from 1 instead of 0
-    $(`img:nth-child(${i+1})`).css(styles);
+    // Add element styles and drop confetti
+    $(`img:nth-child(${i+1})`).css(styles).animate({ "top": website_height }, speed, "swing");
     // Make each image draggable
     $(".image-confetti img").draggable();
   }
