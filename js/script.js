@@ -77,16 +77,12 @@ function dropConfetti() {
 function populateImages(dir_id, img_dir) {
   // determine which group of images to display
   var filepath = `assets/${dir_id}/`;
-  console.log(dir_id);
-  console.log(img_dir);
-  console.log(img_dir.length);
-  // add each image in directory as an element on the screen
 
+  // add each image in directory as an element on the screen
   for (let i = 0; i < img_dir.length; i++) {
     $(".image-confetti").prepend(`<img alt="images" src="${filepath}${img_dir[i]}">`);
-
-
   }
+
   for (let i = 0; i < img_dir.length; i++) {
     // Add CSS to newly created image node
     // To keep from creating a ridiculous number of classes, use first child selector. Since we are prepending the images, the image we just created will always be the first child
